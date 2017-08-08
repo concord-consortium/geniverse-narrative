@@ -1,0 +1,13 @@
+layer d-1 - hold for 1 second
+
+d2 - .3 seconds
+
+d3-10 - .1 seconds
+
+d11 - .3 seconds
+
+d12 - 1 second
+
+d13 - .2 seconds
+
+loop, client suggests the rock throwing be more occasional so the hold on layer d-1 can be longer

@@ -1,0 +1,13 @@
+d1 - hold for 2 seconds
+
+d2 - .2 seconds
+
+d3 - .1 seconds
+
+d4 - .1 seconds
+
+d5 - 1 second
+
+d6 - .2 seconds
+
+d7 - hold
