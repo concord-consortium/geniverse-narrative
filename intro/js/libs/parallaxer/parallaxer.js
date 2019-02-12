@@ -7,7 +7,7 @@ function aParallax(){
     var container = null;
     var interval = 0;
     var currentScroll = null;
-    
+
     p.panelWd = 706; // the width of the primary panel
     p.otherLayers = [{ id: 'layerA', ratio: 0.773 },{ id: 'layerC', ratio: 1.227 },{ id: 'layerD', ratio: 1.45 }]; // all of the other panels
     p.panelCount = $('#layerB .p').length; // the total number of panels
@@ -35,7 +35,7 @@ function aParallax(){
 			narrative = $(aPanel+' .narrative'),
 			overflowNewHt = narrative.outerHeight() + 200,
 			lazyHelper;
-			
+
 
         $('.narrative:visible .adminBlobk textarea:focus, .narrative:visible .adminBlobk input:focus').blur();
     	$('.narrative:visible').stop(true,true).slideUp(200); // roll up text for other slides, if any are unfurled
@@ -69,7 +69,7 @@ function aParallax(){
             p.parallax(p.otherLayers[ih].ref, p.otherLayers[ih].ratio);
     	}
     };
-    
+
     this.destroy = function()
     {
     	if(container) $(container).stop();
@@ -88,7 +88,6 @@ function aParallax(){
     }
 
     this.correctScroll = function (hash, duration){
-    	
     	$("body").stop();
 		var easing = 'easeInOutSine', goToP = $(hash).index()+1, duration, distanceToTravel;
 
@@ -104,14 +103,16 @@ function aParallax(){
 			easing = 'easeOutBack';
 			duration = duration * 1.3;
 		}
-		currentScroll = $.scrollTo( hash, { 'axis' : 'x', 'queue' : true, 'duration' : duration, 'offset' : { 'left' : -p.winHoriSp2Panel }, 'easing' : easing });
+		//currentScroll = $.scrollTo( hash, { 'axis' : 'x', 'queue' : true, 'duration' : duration, 'offset' : { 'left' : -p.winHoriSp2Panel }, 'easing' : easing, onAfter: function(){console.log('scroll done');} });
+    var scroll_to = $(hash).offset().left - p.winHoriSp2Panel;
+    $('html,body').animate({scrollLeft: scroll_to}, duration, easing);
     }
 
     this.panelControl = function(){
         $('#panelControl a:not(.pagination)').click(function(elevator){
-			var hash = $(this).attr('href');
-            elevator.preventDefault();
-            if(hash != '#') p.correctScroll($(this).attr('href'));
+          var hash = $(this).attr('href');
+          elevator.preventDefault();
+          if (hash != '#') p.correctScroll(hash, 800);
         });
     }
 
@@ -353,5 +354,3 @@ function onDocumentReady()
 	mainMenu();
 	copyrightly();
 }
-
-
