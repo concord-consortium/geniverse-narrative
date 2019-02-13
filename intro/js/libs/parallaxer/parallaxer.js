@@ -103,7 +103,6 @@ function aParallax(){
 			easing = 'easeOutBack';
 			duration = duration * 1.3;
 		}
-		//currentScroll = $.scrollTo( hash, { 'axis' : 'x', 'queue' : true, 'duration' : duration, 'offset' : { 'left' : -p.winHoriSp2Panel }, 'easing' : easing, onAfter: function(){console.log('scroll done');} });
     var scroll_to = $(hash).offset().left - p.winHoriSp2Panel;
     $('html,body').animate({scrollLeft: scroll_to}, duration, easing);
     }
